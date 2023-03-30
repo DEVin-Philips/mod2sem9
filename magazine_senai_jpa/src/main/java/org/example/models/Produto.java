@@ -13,6 +13,15 @@ public class Produto {
     private double preco;
     @Column(name = "qtd_estoque")
     private int qtdEstoque;
+    @ManyToOne
+    private Categoria categoria;
+
+    public Produto() {}
+
+    public Produto(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 
     public int getId() {
         return id;
@@ -52,5 +61,13 @@ public class Produto {
 
     public void setQtdEstoque(int qtdEstoque) {
         this.qtdEstoque = qtdEstoque;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
