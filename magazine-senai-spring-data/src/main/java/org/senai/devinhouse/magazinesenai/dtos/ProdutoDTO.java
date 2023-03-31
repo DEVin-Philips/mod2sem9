@@ -1,28 +1,12 @@
-package org.senai.devinhouse.magazinesenai.models;
+package org.senai.devinhouse.magazinesenai.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-@Entity(name = "produtos")
-/*@SequenceGenerator(name = "PRODUTO_ID_GENERATOR",
-                   sequenceName = "SEQ_PRODUTO",
-                   allocationSize = 1)*/
-public class Produto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY/*,
-                    generator = "PRODUTO_ID_GENERATOR"*/)
+public class ProdutoDTO {
     private int id;
     private String nome;
     private String descricao;
     private double preco;
-    @Column(name = "qtd_estoque")
     private int qtdEstoque;
-    @ManyToOne
-    private Categoria categoria;
+    private CategoriaDTO categoria;
 
     public int getId() {
         return id;
@@ -64,11 +48,11 @@ public class Produto {
         this.qtdEstoque = qtdEstoque;
     }
 
-    public Categoria getCategoria() {
+    public CategoriaDTO getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(CategoriaDTO categoria) {
         this.categoria = categoria;
     }
 }
